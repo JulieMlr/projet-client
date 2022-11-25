@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Connexion from './components/Connexion';
 import Creation from './components/Creation';
+import Prestation from './components/Prestation';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Connexion />} />
           <Route path='/creation' element={<Creation />} />
+          <Route path='/prestation' element={<Prestation />} />
         </Routes>
       </Router>
     </div>

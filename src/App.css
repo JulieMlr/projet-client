@@ -1,0 +1,24 @@
+.chakra-card {
+  margin: 20px;
+}
+
+.chakra-input {
+  margin-bottom: 10px;
+}
+
+.chakra-button {
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.chakra-card__header {
+  text-align: center;
+}
+
+.header-card-prestation {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

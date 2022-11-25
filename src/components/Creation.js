@@ -3,7 +3,6 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '../firebase';
-import './Creation.css'
 import { Card, CardHeader, CardBody, Input, ChakraProvider, Button, Link, Heading, Text} from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom";
 
