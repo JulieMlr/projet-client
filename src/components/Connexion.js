@@ -2,18 +2,27 @@ import React, { useRef } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { Card, CardHeader, CardBody, Input, ChakraProvider, Button, Link, Heading, Text } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
+import { getDocs, query, collection, where } from 'firebase/firestore';
+import { db } from '../firebase';
 
 
 function Connexion() {
     const email = useRef()
     const password = useRef()
 
+    const navigate = useNavigate()
+
     const connexion = (e) => {
         e.preventDefault()
         signInWithEmailAndPassword(auth, email.current.value, password.current.value)
-            .then((userCredential) => {
+            .then(async (userCredential) => {
                 const user = userCredential.user;
-                console.log('connexion', user)
+                const q = query(collection(db, "usersCollection"), where("email", "==", user.email));
+                const docSnap = await getDocs(q);
+                docSnap.forEach((res) => {
+                    navigate('/prestation/'+ res.data().id)
+                })
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -21,6 +30,7 @@ function Connexion() {
                 console.log(errorCode, errorMessage)
             });
     }
+
     return (
         <ChakraProvider>
             <Card>
@@ -28,7 +38,7 @@ function Connexion() {
                     <Heading size='md'>Formulaire de connexion</Heading>
                 </CardHeader>
                 <CardBody>
-                    <form onSubmit={connexion}>
+                    <form onSubmit={connexion} >
                         <Input type="text" ref={email} placeholder="Email" size='sm' />
                         <Input type="password" ref={password} placeholder="Mot de passe" size='sm' />
                         <Button type="submit" colorScheme='facebook' size='sm'>Connexion</Button>

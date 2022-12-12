@@ -20,7 +20,6 @@ function Creation() {
         createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log('creation', user)
                 creationInfoSupplementaires(user)
             })
             .catch((error) => {
@@ -29,6 +28,7 @@ function Creation() {
                 console.log(errorCode, errorMessage)
             });
     }
+    
 
     const creationInfoSupplementaires = async (user) => {
         await addDoc(collection(db, 'usersCollection'), {
@@ -65,6 +65,7 @@ function Creation() {
                 </CardBody>
             </Card>
         </ChakraProvider>
+
     )
 }
 
