@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/connexion' element={<Connexion />} />
+          <Route path='/' element={<Connexion />} />
           <Route path='/creation' element={<Creation />} />
           <Route path='/prestation/:idClient' element={<Prestation />} />
           <Route path='/rendez-vous/:idClient' element={<RendezVous />}/>

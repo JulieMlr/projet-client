@@ -38,7 +38,7 @@ function Creation() {
             nom: nom.current.value,
             prenom: prenom.current.value,
         })
-        navigate("/connexion"); 
+        navigate("/"); 
     }
 
     return (
