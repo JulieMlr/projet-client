@@ -28,7 +28,7 @@ function RendezVous() {
         }).catch((err) => {
             console.log(err)
         })
-    }, [])
+    }, [params])
 
     /*const searchDocteur = () => {
         let q = null;
